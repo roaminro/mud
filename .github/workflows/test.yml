@@ -8,8 +8,11 @@ on:
 
 jobs:
   test:
-    name: Run tests
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node: [ 18, 20, 22 ]
+    name: Run tests (Node v${{ matrix.node }})
     services:
       postgres:
         image: postgres:12.1-alpine
