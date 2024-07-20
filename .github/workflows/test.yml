@@ -14,8 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        # node-version: ${{ fromJson(needs.build-nodejs-matrix.outputs.node-version) }}
-        node-version: ${{ fromJson("[18,20]") }}
+        node-version: ${{ fromJson(needs.build-nodejs-matrix.outputs.node-version) }}
     services:
       postgres:
         image: postgres:12.1-alpine
