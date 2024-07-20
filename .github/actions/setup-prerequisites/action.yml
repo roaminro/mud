@@ -1,29 +1,19 @@
 name: Setup prerequisites
 description: Setup pnpm, Node.js, and Foundry
+inputs:
+ node-version:
+    description: 'Node.js version to install'
+    required: true
 runs:
   using: composite
   steps:
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
 
-    - name: Setup node 18
+    - name: Setup node ${{ inputs.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: 18
-        registry-url: https://registry.npmjs.org
-        cache: pnpm
-
-    - name: Setup node 20
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20
-        registry-url: https://registry.npmjs.org
-        cache: pnpm
-
-    - name: Setup node 22
-      uses: actions/setup-node@v4
-      with:
-        node-version: 22
+        node-version: ${{ inputs.node-version }}
         registry-url: https://registry.npmjs.org
         cache: pnpm
 

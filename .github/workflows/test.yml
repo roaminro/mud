@@ -8,11 +8,11 @@ on:
 
 jobs:
   test:
+    name: Run tests
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        node: [ 18, 20, 22 ]
-    name: Run tests (Node v${{ matrix.node }})
+        node: [ 18, 20 ]
     services:
       postgres:
         image: postgres:12.1-alpine
@@ -38,6 +38,8 @@ jobs:
       - name: Setup
         if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/setup
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Build
         if: steps.check_changes.outputs.changes_outside_docs
