@@ -11,8 +11,8 @@ jobs:
   build_matrix:
     runs-on: ubuntu-22.04
     steps:
-      - id: set-matrix
+      - id: set_matrix
         # update node-version with versions of node that will be run by the workflow
-        run: echo '::set-output name=node-version::[18.20]'
+        run: echo "node-version=[18,20]" >> $GITHUB_OUTPUT
     outputs:
-      node-version: ${{ steps.set-matrix.outputs.node-version }}
+      node-version: ${{ steps.set_matrix.outputs.node-version }}
