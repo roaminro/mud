@@ -12,10 +12,10 @@ jobs:
   test:
     name: Run tests (Node.js v${{ matrix.node-version }})
     runs-on: ubuntu-22.04
+    needs: build-nodejs-matrix
     strategy:
       matrix:
-        # node-version: ${{ fromJson(needs.build-nodejs-matrix.outputs.node-version) }}
-        node-version: ${{ needs.build-nodejs-matrix.outputs.node-version }}
+        node-version: ${{ fromJson(needs.build-nodejs-matrix.outputs.node-version) }}
     services:
       postgres:
         image: postgres:12.1-alpine
