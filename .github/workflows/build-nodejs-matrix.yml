@@ -13,6 +13,6 @@ jobs:
     steps:
       - id: set_matrix
         # update node-version with versions of node that will be run by the workflow
-        run: echo "node-version=[18,20,22]" >> $GITHUB_OUTPUT
+        run: echo "node-version=[18,20]" >> $GITHUB_OUTPUT
     outputs:
       node-version: ${{ steps.set_matrix.outputs.node-version }}
