@@ -8,7 +8,7 @@ on:
         value: ${{ jobs.build_matrix.outputs.node-version }}
       node-version-two:
         description: "Matrix of Node.js versions"
-        value: [18,20]
+        value: "[18,20]"
 
 jobs:
   build_matrix:
