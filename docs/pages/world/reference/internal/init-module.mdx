@@ -2,7 +2,7 @@
 
 ## InitModule
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/InitModule.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/InitModule.sol)
 
 **Inherits:**
 [Module](/world/reference/module#module)
@@ -120,7 +120,7 @@ function _registerRootFunctionSelector(ResourceId systemId, string memory functi
 
 ## constants.sol
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/constants.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/constants.sol)
 
 #### ACCESS_MANAGEMENT_SYSTEM_ID
 
@@ -172,7 +172,7 @@ ResourceId constant REGISTRATION_SYSTEM_ID = ResourceId.wrap(
 
 ## RegistrationSystem
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/RegistrationSystem.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/RegistrationSystem.sol)
 
 **Inherits:**
 [IWorldErrors](/world/reference/world-external#iworlderrors), [ModuleInstallationSystem](/world/reference/internal/init-module-implementation#moduleinstallationsystem), [StoreRegistrationSystem](/world/reference/internal/init-module-implementation#storeregistrationsystem), [WorldRegistrationSystem](/world/reference/internal/init-module-implementation#worldregistrationsystem)
@@ -183,7 +183,7 @@ _Aggregates multiple system implementations for the World._
 
 ## LimitedCallContext
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/LimitedCallContext.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/LimitedCallContext.sol)
 
 _Systems are expected to be always called via the central World contract.
 Depending on whether it is a root or non-root system, the call is performed via `delegatecall` or `call`.
@@ -229,7 +229,7 @@ error UnauthorizedCallContext();
 
 ## SystemCallData
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/types.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/types.sol)
 
 Holds data for making system calls.
 
@@ -244,7 +244,7 @@ struct SystemCallData {
 
 ## SystemCallFromData
 
-[Git Source](https://github.com/roaminro/mud/blob/b7c35971bb3bc196698f074042626c090d66405b/src/modules/init/types.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/modules/init/types.sol)
 
 Holds data for making system calls with a specific sender.
 
