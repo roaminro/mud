@@ -4,7 +4,7 @@ name: Build
 # Note: this workflow does not trigger on pushes to main,
 # because the release workflow includes a build+verify step.
 on:
-  pull_request:
+  push:
 
 env:
   NODE_OPTIONS: "--max-old-space-size=4096"
@@ -12,7 +12,11 @@ env:
 jobs:
   build:
     name: Build and validate artifacts
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, windows-latest]
+
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3

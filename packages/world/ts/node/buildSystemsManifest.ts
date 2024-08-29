@@ -4,6 +4,7 @@ import { World } from "../config/v2";
 import { ContractArtifact, systemsManifestFilename } from "./common";
 import { findContractArtifacts } from "./findContractArtifacts";
 import { getOutDirectory as getForgeOutDirectory } from "@latticexyz/common/foundry";
+import { winToPosix } from "@latticexyz/common/codegen";
 import path from "node:path";
 import { Abi, Hex, isHex } from "viem";
 import { formatAbi, formatAbiItem } from "abitype";
@@ -45,7 +46,9 @@ export async function buildSystemsManifest(opts: { rootDir: string; config: Worl
   const contractArtifacts = await findContractArtifacts({ forgeOutDir });
 
   function getSystemArtifact(system: ResolvedSystem): ContractArtifact {
-    const artifact = contractArtifacts.find((a) => a.sourcePath === system.sourcePath && a.name === system.label);
+    const artifact = contractArtifacts.find(
+      (a) => a.sourcePath === winToPosix(system.sourcePath) && a.name === system.label,
+    );
     if (!artifact) {
       throw new Error(
         `Could not find build artifact for system \`${system.label}\` at \`${system.sourcePath}\`. Did \`forge build\` run successfully?`,

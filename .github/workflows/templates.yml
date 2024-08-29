@@ -2,10 +2,6 @@ name: Templates
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - "docs/**"
   pull_request:
     paths-ignore:
       - "docs/**"
@@ -18,11 +14,11 @@ env:
 jobs:
   build:
     name: Build template
-    runs-on: ubuntu-latest
     strategy:
       matrix:
+        os: [ubuntu-22.04, windows-latest]
         template: [vanilla, react, react-ecs, phaser, threejs]
-
+    runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
