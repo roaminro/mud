@@ -4,7 +4,7 @@ name: Build
 # Note: this workflow does not trigger on pushes to main,
 # because the release workflow includes a build+verify step.
 on:
-  push:
+  pull_request:
 
 env:
   NODE_OPTIONS: "--max-old-space-size=4096"
@@ -12,9 +12,9 @@ env:
 jobs:
   build:
     name: Build and validate artifacts
-    strategy:
+     strategy:
       matrix:
-        os: [ubuntu-22.04, windows-latest]
+        os: [depot-ubuntu-22.04-16, windows-latest]
 
     runs-on: ${{ matrix.os }}
     steps:
@@ -29,28 +29,28 @@ jobs:
         run: ./.github/scripts/check_changes_outside_docs.sh
 
       - name: Setup
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/setup
 
       - name: Clean
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         shell: bash
         run: pnpm turbo run clean --concurrency 10
 
       - name: Build
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         shell: bash
         run: pnpm turbo run build --concurrency 10
 
       - name: Outdated files, run `pnpm build` and commit them
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/require-empty-diff
 
       - name: Build API docs
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         shell: bash
         run: pnpm docs:generate:api
 
       - name: Outdated files, run `pnpm docs:generate:api` and commit them
-        # if: steps.check_changes.outputs.changes_outside_docs
+        if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/require-empty-diff
