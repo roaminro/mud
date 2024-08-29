@@ -31,6 +31,7 @@ jobs:
       - name: Check for changes outside docs
         id: check_changes
         run: ./.github/scripts/check_changes_outside_docs.sh
+        shell: bash
 
       - name: Setup
         if: steps.check_changes.outputs.changes_outside_docs
