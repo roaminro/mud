@@ -14,7 +14,7 @@ jobs:
     name: Build and validate artifacts
      strategy:
       matrix:
-        os: [depot-ubuntu-22.04-16, windows-latest]
+        os: [ubuntu-22.04, windows-latest]
 
     runs-on: ${{ matrix.os }}
     steps:
