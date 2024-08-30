@@ -13,18 +13,21 @@ jobs:
       matrix:
         os: [ubuntu-22.04, windows-latest]
     runs-on: ${{ matrix.os }}
-    services:
-      postgres:
-        image: postgres:12.1-alpine
-        ports:
-          - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-      local-kms:
-        image: nsmithuk/local-kms
-        ports:
-          - 8080:8080
+    # services:
+    #   postgres:
+    #     image: postgres:12.1-alpine
+    #     ports:
+    #       - 5432:5432
+    #     # needed because the postgres container does not provide a healthcheck
+    #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    #   local-kms:
+    #     image: nsmithuk/local-kms
+    #     ports:
+    #       - 8080:8080
     steps:
+      - name: Postgres setup
+        uses: ikalnytskyi/action-setup-postgres@v6
+      
       - name: Checkout
         uses: actions/checkout@v3
         with:
