@@ -4,7 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "bench": "tsx ./bench",
+    "bench": "",
     "test": "pnpm run bench",
     "test:ci": "pnpm run test"
   },
