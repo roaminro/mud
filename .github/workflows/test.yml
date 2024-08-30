@@ -28,7 +28,9 @@ jobs:
       - name: Postgres setup
         uses: ikalnytskyi/action-setup-postgres@v6
         with:
-          password: 
+          username: postgres
+          password: postgres
+          database: postgres
  
       - name: Checkout
         uses: actions/checkout@v3
