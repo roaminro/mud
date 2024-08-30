@@ -3,10 +3,6 @@ description: Setup pnpm, Node.js, and Foundry
 runs:
   using: composite
   steps:
-    - if: runner.os == 'Windows'
-      name: setup WSL for Windows runner
-      uses: Vampire/setup-wsl@v3
-
     - name: Setup pnpm
       uses: pnpm/action-setup@v4
 

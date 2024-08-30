@@ -1,10 +1,5 @@
 name: Setup
 description: Common setup steps used by our workflows
-inputs:
- shell:
-    description: 'shell to use to run commands'
-    required: false
-    default: bash
 runs:
   using: composite
   steps:
@@ -13,11 +8,11 @@ runs:
 
     - name: Install node dependencies
       run: pnpm install --frozen-lockfile
-      shell: ${{ inputs.shell }}
+      shell: bash
 
     # Workaround for parallel building with forge:
     # https://github.com/foundry-rs/foundry/issues/4736
     - name: Setup forge
       working-directory: packages/schema-type
       run: forge build
-      shell: ${{ inputs.shell }}
+      shell: bash
