@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
-        shell: [bash, wsl-bash {0}]
+        shell: [bash, "wsl-bash {0}"]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
