@@ -1,4 +1,4 @@
-name: Build
+name: Build WSL
 
 # Verifies build artifacts in pull requests.
 # Note: this workflow does not trigger on pushes to main,
@@ -14,10 +14,10 @@ jobs:
     name: Build and validate artifacts
     defaults:
       run:
-        shell: bash {0}
+        shell: wsl-bash {0}
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout
@@ -26,13 +26,41 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: setup WSL for Windows runner
+        uses: Vampire/setup-wsl@v3
+
       - name: Check for changes outside docs
         id: check_changes
         run: ./.github/scripts/check_changes_outside_docs.sh
+        shell: bash
 
-      - name: Setup
-        if: steps.check_changes.outputs.changes_outside_docs
-        uses: ./.github/actions/setup
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://registry.npmjs.org
+          cache: pnpm
+
+      - name: Setup foundry
+        uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: nightly
+
+      - name: Install node dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Workaround for parallel building with forge:
+      # https://github.com/foundry-rs/foundry/issues/4736
+      - name: Setup forge
+        working-directory: packages/schema-type
+        run: forge build
+
+      # - name: Setup
+      #   if: steps.check_changes.outputs.changes_outside_docs
+      #   uses: ./.github/actions/setup
 
       - name: Clean
         if: steps.check_changes.outputs.changes_outside_docs

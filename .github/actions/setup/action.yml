@@ -7,12 +7,12 @@ runs:
       uses: ./.github/actions/setup-prerequisites
 
     - name: Install node dependencies
-      shell: bash
       run: pnpm install --frozen-lockfile
+      shell: bash
 
     # Workaround for parallel building with forge:
     # https://github.com/foundry-rs/foundry/issues/4736
     - name: Setup forge
-      shell: bash
       working-directory: packages/schema-type
       run: forge build
+      shell: bash
