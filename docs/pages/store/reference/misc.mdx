@@ -2,7 +2,7 @@
 
 ## Bytes
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Bytes.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Bytes.sol)
 
 Utility functions for bytes.
 
@@ -1406,7 +1406,7 @@ function getBytes32(bytes32 data, uint256 start) internal pure returns (bytes32 
 
 ## FieldLayoutInstance
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/FieldLayout.sol)
 
 _Provides instance functions for obtaining information from an encoded FieldLayout._
 
@@ -1571,7 +1571,7 @@ function unwrap(FieldLayout fieldLayout) internal pure returns (bytes32);
 
 ## FieldLayoutLib
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/FieldLayout.sol)
 
 _A library for handling field layout encoding into a single bytes32.
 It provides a function to encode static and dynamic fields and ensure
@@ -1607,7 +1607,7 @@ function encode(uint256[] memory _staticFieldLengths, uint256 numDynamicFields) 
 
 ## FieldLayout
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/FieldLayout.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/FieldLayout.sol)
 
 \*Represents a field layout encoded into a single bytes32.
 From left to right, the bytes are laid out as follows:
@@ -1624,7 +1624,7 @@ type FieldLayout is bytes32;
 
 ## HookInstance
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Hook.sol)
 
 _Library for interacting with Hook instances._
 
@@ -1699,7 +1699,7 @@ function getBitmap(Hook self) internal pure returns (uint8);
 
 ## HookLib
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Hook.sol)
 
 _Library for encoding hooks and filtering hooks from a list by address._
 
@@ -1752,7 +1752,7 @@ function filterListByAddress(
 
 ## Hook
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Hook.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Hook.sol)
 
 ```solidity
 type Hook is bytes21;
@@ -1760,7 +1760,7 @@ type Hook is bytes21;
 
 ## Memory
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Memory.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Memory.sol)
 
 A library for performing low-level memory operations.
 
@@ -1812,7 +1812,7 @@ function copy(uint256 fromPointer, uint256 toPointer, uint256 length) internal p
 
 ## ResourceId.sol constants
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/ResourceId.sol)
 
 #### TYPE_BITS
 
@@ -1824,7 +1824,7 @@ uint256 constant TYPE_BITS = 2 * 8;
 
 ## ResourceIdInstance
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/ResourceId.sol)
 
 _Provides functions to extract data from a ResourceId._
 
@@ -1872,7 +1872,7 @@ function getResourceName(ResourceId resourceId) internal pure returns (bytes30);
 
 ## ResourceIdLib
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/ResourceId.sol)
 
 _Provides functions to encode data into the ResourceId_
 
@@ -1901,7 +1901,7 @@ function encode(bytes2 typeId, bytes30 name) internal pure returns (ResourceId);
 
 ## ResourceId
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/ResourceId.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/ResourceId.sol)
 
 _A ResourceId is a bytes32 data structure that consists of a
 type and a name_
@@ -1912,7 +1912,7 @@ type ResourceId is bytes32;
 
 ## SchemaInstance
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Schema.sol)
 
 _Instance utility functions for handling a Schema instance._
 
@@ -2076,7 +2076,7 @@ function unwrap(Schema schema) internal pure returns (bytes32);
 
 ## SchemaLib
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Schema.sol)
 
 _Static utility functions for handling Schemas._
 
@@ -2104,7 +2104,7 @@ function encode(SchemaType[] memory schemas) internal pure returns (Schema);
 
 ## Schema
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Schema.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Schema.sol)
 
 _Defines and handles the encoding/decoding of Schemas which describe the layout of data structures.
 2 bytes length of all the static (in size) fields in the schema
@@ -2118,7 +2118,7 @@ type Schema is bytes32;
 
 ## SliceInstance
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Slice.sol)
 
 ### Functions
 
@@ -2208,7 +2208,7 @@ function toBytes32(Slice self) internal pure returns (bytes32 result);
 
 ## SliceLib
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Slice.sol)
 
 ### State Variables
 
@@ -2287,7 +2287,7 @@ function getSubslice(bytes memory data, uint256 start, uint256 end) internal pur
 
 ## Slice
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Slice.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Slice.sol)
 
 ```solidity
 type Slice is uint256;
@@ -2295,7 +2295,7 @@ type Slice is uint256;
 
 ## Storage
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/Storage.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Storage.sol)
 
 _Provides functions for low-level storage manipulation, including storing and retrieving bytes._
 
@@ -2450,7 +2450,7 @@ function loadField(uint256 storagePointer, uint256 length, uint256 offset) inter
 
 ## constants.sol
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/constants.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/constants.sol)
 
 #### WORD_SIZE
 
@@ -2504,7 +2504,7 @@ uint256 constant MAX_DYNAMIC_FIELDS = 5;
 
 ## LayoutOffsets
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/constants.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/constants.sol)
 
 This library provides constant offsets for FieldLayout and Schema metadata.
 
@@ -2538,7 +2538,7 @@ uint256 internal constant NUM_DYNAMIC_FIELDS = (WORD_SIZE - 2 - 1 - 1) * BYTE_TO
 
 ## rightMask
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/rightMask.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/rightMask.sol)
 
 Utility functions to manage bytes in memory.
 
@@ -2566,7 +2566,7 @@ function rightMask(uint256 byteLength) pure returns (uint256 mask);
 
 ## storeHookTypes.sol constants
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/storeHookTypes.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/storeHookTypes.sol)
 
 #### BEFORE_SET_RECORD
 
@@ -2675,7 +2675,7 @@ uint8 constant AFTER_ALL = AFTER_SET_RECORD |
 
 ## storeResourceTypes.sol constants
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/storeResourceTypes.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/storeResourceTypes.sol)
 
 #### RESOURCE_TABLE
 
@@ -2699,7 +2699,7 @@ bytes2 constant RESOURCE_OFFCHAIN_TABLE = "ot";
 
 ## version.sol constants
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/store/src/version.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/version.sol)
 
 #### STORE_VERSION
 

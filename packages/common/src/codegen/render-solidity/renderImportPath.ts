@@ -2,7 +2,7 @@ import path from "node:path";
 
 // This will probably break for backslash-escaped POSIX paths,
 // but we'll worry about that later.
-function winToPosix(segment: string): string {
+export function winToPosix(segment: string): string {
   return segment.replaceAll(path.win32.sep, path.posix.sep);
 }
 

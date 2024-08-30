@@ -2,7 +2,7 @@
 
 ## IBaseWorld
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/codegen/interfaces/IBaseWorld.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/codegen/interfaces/IBaseWorld.sol)
 
 **Inherits:**
 [IStore](/store/reference/store#istore), [IWorldKernel](/world/reference/world-external#iworldkernel), [IRegistrationSystem](/world/reference/world-external#iregistrationsystem), [IAccessManagementSystem](/world/reference/world-external#iaccessmanagementsystem), [IBalanceTransferSystem](/world/reference/world-external#ibalancetransfersystem), [IBatchCallSystem](/world/reference/world-external#ibatchcallsystem), [IModuleInstallationSystem](/world/reference/world-external#imoduleinstallationsystem), [IWorldRegistrationSystem](/world/reference/world-external#iworldregistrationsystem)
@@ -14,7 +14,7 @@ _._
 
 ## Store
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/Store.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/Store.sol)
 
 **Inherits:**
 [IStore](/store/reference/store#istore), [StoreKernel](/store/reference/store-core#storekernel)
@@ -637,7 +637,7 @@ error Store_InvalidSplice(uint40 startWithinField, uint40 deleteCount, uint40 fi
 
 ## IWorldCall
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldKernel.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldKernel.sol)
 
 _This interface defines the contract for executing calls on the World's systems._
 
@@ -698,7 +698,7 @@ function callFrom(
 
 ## IWorldKernel
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldKernel.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldKernel.sol)
 
 **Inherits:**
 [IWorldModuleInstallation](/world/reference/world-external#iworldmoduleinstallation), [IWorldCall](/world/reference/world-external#iworldcall), [IWorldErrors](/world/reference/world-external#iworlderrors), [IWorldEvents](/world/reference/world-external#iworldevents), [IModuleErrors](/world/reference/module-external#imoduleerrors)
@@ -758,7 +758,7 @@ function initialize(IModule initModule) external;
 
 ## IWorldModuleInstallation
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldKernel.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldKernel.sol)
 
 _This interface defines the contract responsible for managing root modules installation._
 
@@ -783,7 +783,7 @@ function installRootModule(IModule module, bytes memory encodedArgs) external;
 
 ## IWorldErrors
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldErrors.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldErrors.sol)
 
 _This interface contains custom error types for the World contract. These errors provide
 more informative messages for certain operations within the World contract._
@@ -1000,7 +1000,7 @@ error World_CallbackNotAllowed(bytes4 functionSelector);
 
 ## IWorldEvents
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldEvents.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldEvents.sol)
 
 _We bundle these events in an interface (instead of at the file-level or in their corresponding library) so they can be inherited by IWorldKernel.
 This ensures that all events are included in the IWorldKernel ABI for proper decoding in the frontend._
@@ -1023,7 +1023,7 @@ event HelloWorld(bytes32 indexed worldVersion);
 
 ## IWorldFactory
 
-[Git Source](https://github.com/latticexyz/mud/blob/main/packages/world/src/IWorldFactory.sol)
+[Git Source](https://github.com/roaminro/mud/blob/e8bee87b50ad0f9bdca18ad0c0c252b20ce20fea/src/IWorldFactory.sol)
 
 _This interface defines the contract responsible for deploying and keeping track
 of World contract instances._

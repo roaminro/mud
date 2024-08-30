@@ -13,19 +13,25 @@ on:
 jobs:
   main:
     name: Run end-to-end tests
-    runs-on: depot-ubuntu-22.04-16
-    services:
-      postgres:
-        image: postgres:12.1-alpine
-        ports:
-          - 5432:5432
-        # needed because the postgres container does not provide a healthcheck
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    strategy:
+      matrix:
+        os: [ubuntu-22.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    # services:
+    #   postgres:
+    #     image: postgres:12.1-alpine
+    #     ports:
+    #       - 5432:5432
+    #     # needed because the postgres container does not provide a healthcheck
+    #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: recursive
+
+      - name: Postgres setup
+        uses: ikalnytskyi/action-setup-postgres@v6
 
       - name: Setup
         uses: ./.github/actions/setup
@@ -55,6 +61,6 @@ jobs:
       - name: Run tests
         timeout-minutes: 15
         env:
-          DATABASE_URL: "postgres://postgres@localhost:5432/postgres"
+          DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
         working-directory: ./e2e
         run: pnpm run test:ci
