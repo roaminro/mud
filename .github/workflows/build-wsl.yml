@@ -73,7 +73,6 @@ jobs:
       - name: Outdated files, run `pnpm build` and commit them
         if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/require-empty-diff
-        shell: bash
 
       - name: Build API docs
         if: steps.check_changes.outputs.changes_outside_docs
