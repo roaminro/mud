@@ -26,12 +26,12 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
+      - name: setup WSL for Windows runner
+        uses: Vampire/setup-wsl@v3
+
       - name: Check for changes outside docs
         id: check_changes
         run: ./.github/scripts/check_changes_outside_docs.sh
-
-      - name: setup WSL for Windows runner
-        uses: Vampire/setup-wsl@v3
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
