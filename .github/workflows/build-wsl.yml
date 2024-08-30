@@ -32,6 +32,7 @@ jobs:
       - name: Check for changes outside docs
         id: check_changes
         run: ./.github/scripts/check_changes_outside_docs.sh
+        shell: bash
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -72,6 +73,7 @@ jobs:
       - name: Outdated files, run `pnpm build` and commit them
         if: steps.check_changes.outputs.changes_outside_docs
         uses: ./.github/actions/require-empty-diff
+        shell: bash
 
       - name: Build API docs
         if: steps.check_changes.outputs.changes_outside_docs
