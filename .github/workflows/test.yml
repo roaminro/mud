@@ -27,10 +27,6 @@ jobs:
     steps:
       - name: Postgres setup
         uses: ikalnytskyi/action-setup-postgres@v6
-        with:
-          username: postgres
-          password: postgres
-          database: postgres
  
       - name: Checkout
         uses: actions/checkout@v3
@@ -55,7 +51,7 @@ jobs:
         if: steps.check_changes.outputs.changes_outside_docs
         timeout-minutes: 15
         env:
-          DATABASE_URL: "postgres://postgres@localhost:5432/postgres"
+          DATABASE_URL: "postgres://postgres:postgres@localhost:5432/postgres"
           AWS_ENDPOINT_URL: "http://localhost:8080"
         run: pnpm test:ci
 
