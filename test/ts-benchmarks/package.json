@@ -4,9 +4,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "bench": "",
-    "test": "pnpm run bench",
-    "test:ci": "pnpm run test"
+    "bench": "tsx ./bench",
+    "test": "pnpm run bench"
   },
   "devDependencies": {
     "@latticexyz/recs": "workspace:*",
